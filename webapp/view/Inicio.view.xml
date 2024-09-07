@@ -1,0 +1,58 @@
+<mvc:View controllerName="projetonetflixx.controller.Inicio"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.m">
+    
+
+    
+    <Page id="idPage" title="{i18n>}">
+        <subHeader>
+            <Toolbar>         
+               
+                <content>
+                    <Image src="../img/netflix.jpg" width="30%" height="500%"/>
+                    <Link text="Início" press= "onInicioLinkPress" class="subtitulo"/>
+                    <Link text="Filmes" class="subtitulo"/>
+                    <Link text="Séries" class="subtitulo"/>
+                    <Link text="Bombando" class="subtitulo"/>
+                    <Link text="Minha lista" class="subtitulo"/>
+                    <Link text="Navegar por idiomas" class="subtitulo"/>
+
+
+
+                    
+                    <ToolbarSpacer ></ToolbarSpacer>
+                     <SearchField width="30%" id="idSearchField" search="onBuscarDados"></SearchField>   
+                    
+                        
+                    
+                </content>
+            </Toolbar>
+        </subHeader>
+    <content>
+    <layout:Grid content="{APINetflix>/titles}">
+    
+        <VBox width="300px" height="350px" class="preencherBoxPreto"> 
+            <Image src="{APINetflix>jawSummary/backgroundImage/url}" width="100%" height="100%"/>
+                        <Image src="{APINetflix>jawSummary/logoImage/url}" width="60%" height="60%" class="margemLogo"/>
+            <Text text="{APINetflix>jawSummary/title}" class="corTextoBranco espacoRodape margemLogo titulo"/>
+            <Text text="{APINetflix>jawSummary/synopsis}" class="corTextoBranco espacoRodape margemLogo"/>
+            <Text text="{APINetflix>jawSummary/genres/1/name}" class="corTextoBranco espacoRodape margemLogo"/>
+            <Text text="{APINetflix>jawSummary/genres/2/name}" class="corTextoBranco espacoRodape margemLogo"/>
+        </VBox>
+
+        <!-- <VBox width="300px" height="350px" class="preencherBoxPreto"> 
+            <Image src="../img/umbrella.png" width="100%" height="100%"/>
+            
+            <Text text="Umbrella Academy" class="corTextoBranco"/>
+            <Text text="4 Temporadas" class="corTextoBranco"/>
+            <Text text="8 Episódios" class="corTextoBranco"/>
+            <Text text="Categoria Fantasia" class="corTextoBranco"/>
+            <Text text="Categoria Super Heóis" class="corTextoBranco"/>
+
+        </VBox> -->
+    
+    </layout:Grid>
+    </content>
+    </Page>
+</mvc:View>
